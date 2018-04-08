@@ -25,6 +25,6 @@ void PID::UpdateError(double cte) {
 
 double PID::TotalError() {
 
-  // Sum error across measures 
-  return -Kp * p-error - Kd * d_error - Ki * i_error;
+  // Sum error across measures
+  return -Kp * p_error - Kd * d_error - Ki * i_error;
 }
