@@ -6,14 +6,17 @@ Self-Driving Car Engineer Nanodegree Program
 ## What is PID control?
 PID stands for **Proportional coefficient**, **Integral coefficient**, **Differential coefficient**.
 
-* Proportional coefficient
-Oscillates toward CTE value. P * CTE.
+* **Proportional coefficient**
 
-* Integral coefficient
-Compensate for bias through observing difference between position and expected CTE over time.  The simulator is in ideal conditions, with no bias coded in, so this number is small.
+    Oscillates toward CTE value. P * CTE.
 
-* Differential coefficient
-Helps avoid oversteering - makes sure correction to CTE is more gradual. 
+* **Integral coefficient**
+
+    Compensate for bias through observing difference between position and expected CTE over time.  The simulator is in ideal conditions, with no bias coded in, so this number is small.
+
+* **Differential coefficient**
+
+    Helps avoid oversteering - makes sure correction to CTE is more gradual. 
 
 
 
