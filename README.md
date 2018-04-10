@@ -4,19 +4,25 @@ Self-Driving Car Engineer Nanodegree Program
 ---
 
 ## What is PID control?
-PID stands for **Proportional**, **Integral**, **Differential** coefficients.
+
+![Workflow of the PID Algorithm](/Images/PID_en.svg)
+*Courtesy of https://en.wikipedia.org/wiki/PID_controller*
+
+PID stands for **Proportional**, **Integral**, **Differential** coefficients. Below, I discuss how they work in relation to this self-driving simulation.  My thought process for setting the coefficients was to do it through manual trial and error, but I'm looking forward to trying more advanced options when I have a little more time.
 
 * **Proportional coefficient (`P`)**
 
-    `P` helps the car steer proportionally to the cross-track error (CTE), which represents how far the cars current position is from the center of the road. If P is too large, the car will overcorrect, and if it is too low, the car will undercorrect.
+    `P` helps the car steer proportionally to the cross-track error (CTE), which represents how far the cars current position is from the center of the road. If P is too large, the car will overcorrect, and if it is too low, the car will undercorrect. I set this coefficient to `0.17`, which ended up being a fair balance between the car swerving down the track and not turning enough around sharp corners.  
 
 * **Integral coefficient (`I`)**
 
-    `I` sums up all previous CTE values, and corrects of systemic drift in the car.  For instance, if the CTEs are consistently negative, the sum will be very negative indicate the car drifts to left.  If positive, then the car drifts right.  Ideally, in a situation where no systemic error is occurring, the CTEs would oscillate positive and negative as the car corrected to center, giving an I value of around zero. The simulator is an ideal environment, with no bias coded in, so this number is small.
+    `I` sums up all previous CTE values, and corrects of systemic drift in the car.  For instance, if the CTEs are consistently negative, the sum will be very negative indicate the car drifts to left.  If positive, then the car drifts right.  Ideally, in a situation where no systemic error is occurring, the CTEs would oscillate positive and negative as the car corrected to center, giving an I value of around zero. The simulator is an ideal environment, with no bias coded in, so this number is small at `.0001`.
 
 * **Differential coefficient (`D`)**
 
     `D` measures the change between CTEs, and adjusts the steering angle accordingly.  If the change in steering angle is large and positive, it means the car is moving away from the center, probably towards a curve.  If the change is large and negative, it means the car is readjusting towards center, and D will smooth out the transition.  This helps avoid oversteering and makes sure correction to CTE is more gradual or more sharp as needed.
+
+    Initially my car was swerving down straight-aways, so I raised `D` to a relatively high `3.0`, which helped smooth out the driving quite a bit.
 
 
 
