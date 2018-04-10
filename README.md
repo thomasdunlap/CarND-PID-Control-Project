@@ -12,7 +12,7 @@ PID stands for **Proportional**, **Integral**, **Differential** coefficients.
 
 * **Integral coefficient (I)**
 
-    Compensate for bias through observing difference between position and expected CTE over time.  I sums up all previous CTE values, and corrects of systemic drift in the car.  For instance, if the CTEs are consistently negative, the sum will be very negative indicate the car drifts to left.  If positive, then the car drifts right.  Ideally, in a situation where no systemic error is occuring, the CTEs would occilate positive and negative as the car corrected to center, giving an I value of around zero. The simulator is an ideal environment, with no bias coded in, so this number is small.
+    Compensate for bias through observing difference between position and expected CTE over time.  I sums up all previous CTE values, and corrects of systemic drift in the car.  For instance, if the CTEs are consistently negative, the sum will be very negative indicate the car drifts to left.  If positive, then the car drifts right.  Ideally, in a situation where no systemic error is occurring, the CTEs would oscillate positive and negative as the car corrected to center, giving an I value of around zero. The simulator is an ideal environment, with no bias coded in, so this number is small.
 
 * **Differential coefficient (D)**
 
