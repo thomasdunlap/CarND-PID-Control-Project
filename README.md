@@ -4,19 +4,19 @@ Self-Driving Car Engineer Nanodegree Program
 ---
 
 ## What is PID control?
-PID stands for **Proportional coefficient**, **Integral coefficient**, **Differential coefficient**.
+PID stands for **Proportional**, **Integral**, **Differential** coefficients.
 
-* **Proportional coefficient**
+* **Proportional coefficient (P)**
 
-    Oscillates toward CTE value. P * CTE.
+    This helps the car steer proportionally to the cross-track error (CTE), which represents how far the cars current position is from the center of the road. If P is too large, the car will overcorrect, and if it is too low, the car will undercorrect.
 
-* **Integral coefficient**
+* **Integral coefficient (I)**
 
-    Compensate for bias through observing difference between position and expected CTE over time.  The simulator is in ideal conditions, with no bias coded in, so this number is small.
+    Compensate for bias through observing difference between position and expected CTE over time.  I sums up all previous CTE values, and corrects of systemic drift in the car.  For instance, if the CTEs are consistently negative, the sum will be very negative indicate the car drifts to left.  If positive, then the car drifts right.  Ideally, in a situation where no systemic error is occuring, the CTEs would occilate positive and negative as the car corrected to center, giving an I value of around zero. The simulator is an ideal environment, with no bias coded in, so this number is small.
 
-* **Differential coefficient**
+* **Differential coefficient (D)**
 
-    Helps avoid oversteering - makes sure correction to CTE is more gradual. 
+    D measures the change between CTEs, and adjusts the steering angle accordingly.  If the change in steering angle is large and positive, it means the car is moving away from the center, probably towards a curve.  If the change is large and negative, it means the car is readjusting towards center, and D will smooth out the transition.  This helps avoid oversteering and makes sure correction to CTE is more gradual or more sharp as needed.
 
 
 
